@@ -41,9 +41,10 @@ const QRCodeGenerator = () => {
 
     const img = new Image();
     img.onload = () => {
+      canvas.width = img.width;
+      canvas.height = img.height;
       ctx.drawImage(img, 0, 0);
       const png = canvas.toDataURL("image/png");
-
       const downloadLink = document.createElement("a");
       downloadLink.href = png;
       downloadLink.download = "QRCodeByOleKoder.png";
